@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Market Order Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="loginScreen">
+    <h1>🔒 Login to Start Trading</h1>
+    <input type="text" id="username" placeholder="Enter your trader name..." />
+    <button onclick="loginUser()">Login</button>
+  </div>
+
+  <div id="mainContent" class="hidden">
+    <div class="header">
+      <h1 class="title">📈 Market Order Simulator</h1>
+      <button id="toggleMode">🌓 Toggle Light/Dark Mode</button>
+    </div>
+
+    <div class="info">
+      <div id="price">Price: ₹100.00</div>
+      <div id="profit">Net Profit: ₹0.00</div>
+    </div>
+
+    <div class="controls">
+      <label>Side:
+        <select id="orderSide">
+          <option value="buy">Buy</option>
+          <option value="sell">Sell</option>
+        </select>
+      </label>
+
+      <label>Order Type:
+        <select id="orderType">
+          <option value="market">Market Order</option>
+          <option value="limit">Limit Order</option>
+        </select>
+      </label>
+
+      <label>Limit Price (₹):
+        <input type="number" id="orderPrice" placeholder="Enter limit price..." />
+      </label>
+
+      <button onclick="placeOrder()">Place Order</button>
+    </div>
+
+    <canvas id="priceChart" width="600" height="300"></canvas>
+
+    <div id="orders" class="orders-box"></div>
+  </div>
+
+  <audio id="fillSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_cba1b6dd43.mp3" preload="auto"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
